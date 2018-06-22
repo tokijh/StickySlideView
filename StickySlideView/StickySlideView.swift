@@ -11,7 +11,13 @@ import Foundation
 @IBDesignable
 open class StickySlideView: UIView {
     
-    @IBOutlet weak open private(set) var containerView: UIScrollView!
+    @IBOutlet weak open private(set) var containerView: UIScrollView! {
+        willSet {
+            self.containerView?.panGestureRecognizer.removeTarget(self, action: #selector(self.detectScrollPangesture(_:)))
+            self.scrollOffsetObserver?.invalidate()
+            self.scrollOffsetObserver = nil
+        }
+    }
     
     private lazy var defaultContainerView: UIScrollView = UIScrollView()
     
@@ -43,12 +49,22 @@ open class StickySlideView: UIView {
     
     private var tapGesture: UITapGestureRecognizer!
     private var panGesture: UIPanGestureRecognizer!
+    private var scrollOffsetObserver: NSKeyValueObservation?
     
-    private lazy var heightConstraint: NSLayoutConstraint = { [unowned self] in
+    private var heightConstraint: CGFloat {
+        get {
+            return self.heightLayoutConstraint.constant
+        }
+        set {
+            self.heightLayoutConstraint.constant = newValue
+        }
+    }
+    
+    private lazy var heightLayoutConstraint: NSLayoutConstraint = { [unowned self] in
         let constraint = self.heightAnchor.constraint(equalToConstant: self.isOpen ? self.maxHeight : self.handlerHeight)
         constraint.isActive = true
         return constraint
-        }()
+    }()
     
     open override var intrinsicContentSize: CGSize {
         if self.isOpen {
@@ -113,6 +129,7 @@ open class StickySlideView: UIView {
             self.maxHeight = maxHeight
         }
         setupHandler()
+        setupScroll()
     }
     
     private func constraint(containerView: UIScrollView) {
@@ -134,21 +151,66 @@ open class StickySlideView: UIView {
         self.addGestureRecognizer(self.panGesture)
     }
     
+    private func setupScroll() {
+        self.scrollOffsetObserver = self.containerView
+            .observe(\.contentOffset, options: [.new, .old]) { [weak self] (scrollView, change) in
+                guard let newValue = change.newValue, let oldValue = change.oldValue else { return }
+                self?.detectScroll(scrollView: scrollView, newOffset: newValue, oldOffset: oldValue)
+            }
+        self.containerView.panGestureRecognizer.addTarget(self, action: #selector(self.detectScrollPangesture(_:)))
+    }
+    
+    private func detectScroll(scrollView: UIScrollView, newOffset: CGPoint, oldOffset: CGPoint) {
+        if newOffset.y < 0 { // Bounce up
+            let changedHeight = self.heightConstraint - (oldOffset.y - newOffset.y)
+            if changedHeight > self.handlerHeight {
+                self.heightConstraint = changedHeight
+            }
+            return
+        }
+        if newOffset.y - oldOffset.y > 0 {
+            if newOffset.y > 0, self.heightConstraint < self.maxHeight { // Bounce로 확장 후 다시 아래로 스크롤 했을 경우
+                scrollView.setContentOffset(CGPoint.zero, animated: false)
+                self.heightConstraint = self.heightConstraint - (oldOffset.y - newOffset.y)
+            }
+        }
+    }
+    
+    @objc private func detectScrollPangesture(_ recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .ended {
+            if self.heightConstraint > self.maxHeight {
+                open()
+            } else {
+                if self.isOpen {
+                    if self.heightConstraint > self.maxHeight / self.sensitive * (self.sensitive - 1) {
+                        open()
+                    } else {
+                        close()
+                    }
+                } else {
+                    if self.heightConstraint > self.maxHeight / self.sensitive {
+                        open()
+                    } else {
+                        close()
+                    }
+                }
+            }
+        }
+    }
+    
     @objc private func detectTapGesture(_ recognizer: UITapGestureRecognizer) {
         toggle()
     }
     
     @objc private func detactPangesture(_ recognizer: UIPanGestureRecognizer) {
-        let height = self.heightConstraint.constant
-        
         switch recognizer.state {
         case .began:
             break
         case .changed:
             let transliation = recognizer.translation(in: self)
-            let newHeight = height - transliation.y
-            if newHeight > self.handlerHeight {
-                self.heightConstraint.constant = newHeight
+            let newHeight = self.heightConstraint - transliation.y
+            if newHeight > self.handlerHeight, newHeight < self.maxHeight {
+                self.heightConstraint = newHeight
             }
             recognizer.setTranslation(CGPoint.zero, in: self)
             break
@@ -159,17 +221,17 @@ open class StickySlideView: UIView {
                 return
             }
             
-            if height > self.maxHeight {
+            if self.heightConstraint > self.maxHeight {
                 open()
             } else {
                 if self.isOpen {
-                    if height > self.maxHeight / self.sensitive * (self.sensitive - 1) {
+                    if self.heightConstraint > self.maxHeight / self.sensitive * (self.sensitive - 1) {
                         open()
                     } else {
                         close()
                     }
                 } else {
-                    if height > self.maxHeight / self.sensitive {
+                    if self.heightConstraint > self.maxHeight / self.sensitive {
                         open()
                     } else {
                         close()
@@ -182,7 +244,7 @@ open class StickySlideView: UIView {
     }
     
     public func open() {
-        self.heightConstraint.constant = self.maxHeight
+        self.heightConstraint = self.maxHeight
         self.isOpen = true
         UIView.animate(
             withDuration: 0.2,
@@ -192,7 +254,7 @@ open class StickySlideView: UIView {
     }
     
     public func close() {
-        self.heightConstraint.constant = self.handlerHeight
+        self.heightConstraint = self.handlerHeight
         self.isOpen = false
         UIView.animate(
             withDuration: 0.2,
