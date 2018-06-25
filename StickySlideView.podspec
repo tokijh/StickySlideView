@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'StickySlideView'
-  s.version          = '1.0'
+  s.version          = '1.1'
   s.swift_version    = '4.1'
   s.summary          = 'SlideView synchronized with ScrollView'
   s.description      = 'SlideView synchronized with ScrollView'
