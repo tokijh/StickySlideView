@@ -11,6 +11,13 @@ SlideView synchronized with ScrollView
 
 ![sample](Docs/sample.gif)
 
+## Noti
+### v1.1
+Now, you can use estimated height function</br>
+It will calculate height dynamically through `containerView.contentSize`.
+
+![estimatedSample](Docs/estimatedSample.gif)
+
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
