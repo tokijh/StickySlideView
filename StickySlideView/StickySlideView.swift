@@ -46,6 +46,7 @@ open class StickySlideView: UIView {
             invalidateIntrinsicContentSize()
         }
     }
+    @IBInspectable open var useEstimatedHeight: Bool = true
     @IBInspectable open var isOpen: Bool = false {
         didSet {
             setNeedsLayout()
@@ -73,19 +74,19 @@ open class StickySlideView: UIView {
     }
     public var progress: CGFloat {
         get {
-            if self.height >= self.maxHeight {
+            if self.height >= self.estimatedHeight {
                 return 1.0
             } else if self.height <= self.handlerHeight {
                 return 0.0
             }
-            return self.height / self.maxHeight
+            return self.height / self.estimatedHeight
         }
         set {
             if newValue <= 0 {
                 self.height = self.handlerHeight
             } else {
-                let newHeight = ((self.maxHeight - self.handlerHeight) * newValue) + self.handlerHeight
-                self.height = newHeight > self.maxHeight ? self.maxHeight : newHeight
+                let newHeight = ((self.estimatedHeight - self.handlerHeight) * newValue) + self.handlerHeight
+                self.height = newHeight > self.estimatedHeight ? self.estimatedHeight : newHeight
             }
         }
     }
@@ -102,6 +103,12 @@ open class StickySlideView: UIView {
                 self.delegate?.stickySlideView(self, didChangeProgress: self.progress)
             }
             self.blockDelegateHeight = false
+        }
+    }
+    private var estimatedHeight: CGFloat {
+        get {
+            let contentHeight = self.containerView.contentSize.height
+            return self.useEstimatedHeight && self.maxHeight > contentHeight ? contentHeight : self.maxHeight
         }
     }
     
@@ -126,7 +133,7 @@ open class StickySlideView: UIView {
     }
     
     private lazy var heightLayoutConstraint: NSLayoutConstraint = { [unowned self] in
-        let constraint = self.heightAnchor.constraint(equalToConstant: self.isOpen ? self.maxHeight : self.handlerHeight)
+        let constraint = self.heightAnchor.constraint(equalToConstant: self.isOpen ? self.estimatedHeight : self.handlerHeight)
         constraint.isActive = true
         return constraint
     }()
@@ -232,7 +239,7 @@ open class StickySlideView: UIView {
                 }
             }
         } else if newOffset.y - oldOffset.y > 0 { // Scroll down
-            if newOffset.y > 0, self.heightConstraint < self.maxHeight { // Bounce로 확장 후 다시 아래로 스크롤 한 경우
+            if newOffset.y > 0, self.heightConstraint < self.estimatedHeight { // Bounce로 확장 후 다시 아래로 스크롤 한 경우
                 scrollView.setContentOffset(CGPoint.zero, animated: false)
                 let distance = oldOffset.y - newOffset.y
                 if distance != 0 {
@@ -251,7 +258,7 @@ open class StickySlideView: UIView {
         case .changed:
             let transliation = recognizer.translation(in: self)
             let newHeight = self.heightConstraint - transliation.y
-            if newHeight > self.handlerHeight, newHeight < self.maxHeight {
+            if newHeight > self.handlerHeight, newHeight < self.estimatedHeight {
                 self.heightConstraint = newHeight
             }
             recognizer.setTranslation(CGPoint.zero, in: self)
@@ -268,17 +275,17 @@ open class StickySlideView: UIView {
     }
     
     private func updateStatus() {
-        if self.heightConstraint > self.maxHeight {
+        if self.heightConstraint > self.estimatedHeight {
             open()
-        } else if self.heightConstraint != self.maxHeight, self.heightConstraint != self.handlerHeight {
+        } else if self.heightConstraint != self.estimatedHeight, self.heightConstraint != self.handlerHeight {
             if self.isOpen {
-                if self.heightConstraint > self.maxHeight / self.sensitive * (self.sensitive - 1) {
+                if self.heightConstraint > self.estimatedHeight / self.sensitive * (self.sensitive - 1) {
                     open()
                 } else {
                     close()
                 }
             } else {
-                if self.heightConstraint > self.maxHeight / self.sensitive {
+                if self.heightConstraint > self.estimatedHeight / self.sensitive {
                     open()
                 } else {
                     close()
@@ -290,7 +297,7 @@ open class StickySlideView: UIView {
     public func open() {
         self.openTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.detectOpenAnimationTime), userInfo: nil, repeats: true)
         self.blockDelegateHeight = true
-        self.heightConstraint = self.maxHeight
+        self.heightConstraint = self.estimatedHeight
         UIView.animate(
             withDuration: self.animationSpeed,
             animations: {
@@ -327,6 +334,14 @@ open class StickySlideView: UIView {
             close()
         } else {
             open()
+        }
+    }
+    
+    public func update() {
+        if self.isOpen {
+            open()
+        } else {
+            close()
         }
     }
     

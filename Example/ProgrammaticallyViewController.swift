@@ -13,6 +13,8 @@ class ProgrammaticallyViewController: UIViewController {
     
     let tableViewCellIdentifier = "TableViewCell"
     
+    lazy var rightBarItemButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.onClickRightBarItem(_:)))
+    
     lazy var stickySlideView: StickySlideView = { [unowned self] in
         let stickySlideView = StickySlideView(containerView: self.tableView, handlerHeight: 42, maxHeight: 500)
         return stickySlideView
@@ -25,6 +27,8 @@ class ProgrammaticallyViewController: UIViewController {
     }()
     lazy var tableView: UITableView = UITableView()
     
+    var rows: [String] = ["0", "1", "2", "3", "4"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -33,6 +37,8 @@ class ProgrammaticallyViewController: UIViewController {
     }
     
     private func initView() {
+        self.navigationItem.rightBarButtonItem = rightBarItemButton
+        
         self.view.addSubview(self.stickySlideView)
         self.stickySlideView.translatesAutoresizingMaskIntoConstraints = false
         self.stickySlideView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
@@ -63,16 +69,22 @@ class ProgrammaticallyViewController: UIViewController {
     private func setupStickSlideView() {
         self.stickySlideView.delegate = self
     }
+    
+    @objc private func onClickRightBarItem(_ sender: UIBarButtonItem) {
+        self.rows.append("\(self.rows.count)")
+        self.tableView.reloadData()
+        self.stickySlideView.update()
+    }
 }
 
 extension ProgrammaticallyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return self.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier, for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = self.rows[indexPath.row]
         return cell
     }
 }
