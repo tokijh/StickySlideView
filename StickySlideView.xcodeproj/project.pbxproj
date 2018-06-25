@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		603DB38F20DE2C7300076842 /* StickySlideViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603DB38E20DE2C7300076842 /* StickySlideViewDelegate.swift */; };
 		CDA3655E20D9EE6A002EBF55 /* StickySlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA3655C20D9EE6A002EBF55 /* StickySlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDA3656520D9EE82002EBF55 /* StickySlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3656420D9EE82002EBF55 /* StickySlideView.swift */; };
 		CDA3656D20D9F445002EBF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3656C20D9F445002EBF55 /* AppDelegate.swift */; };
-		CDA3656F20D9F445002EBF55 /* InStoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3656E20D9F445002EBF55 /* InStoryboardViewController.swift */; };
+		CDA3656F20D9F445002EBF55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3656E20D9F445002EBF55 /* ViewController.swift */; };
 		CDA3657220D9F445002EBF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA3657020D9F445002EBF55 /* Main.storyboard */; };
 		CDA3657420D9F446002EBF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA3657320D9F446002EBF55 /* Assets.xcassets */; };
 		CDA3657720D9F446002EBF55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA3657520D9F446002EBF55 /* LaunchScreen.storyboard */; };
 		CDA3657C20D9F44E002EBF55 /* StickySlideView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA3655920D9EE6A002EBF55 /* StickySlideView.framework */; };
 		CDA3657D20D9F44E002EBF55 /* StickySlideView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDA3655920D9EE6A002EBF55 /* StickySlideView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CDCE2FEE20DA3E9600B52C58 /* InCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE2FED20DA3E9600B52C58 /* InCodeViewController.swift */; };
+		CDCE2FEE20DA3E9600B52C58 /* ProgrammaticallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE2FED20DA3E9600B52C58 /* ProgrammaticallyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,18 +45,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		603DB38E20DE2C7300076842 /* StickySlideViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickySlideViewDelegate.swift; sourceTree = "<group>"; };
 		CDA3655920D9EE6A002EBF55 /* StickySlideView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StickySlideView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA3655C20D9EE6A002EBF55 /* StickySlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StickySlideView.h; sourceTree = "<group>"; };
 		CDA3655D20D9EE6A002EBF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA3656420D9EE82002EBF55 /* StickySlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickySlideView.swift; sourceTree = "<group>"; };
 		CDA3656A20D9F445002EBF55 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA3656C20D9F445002EBF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDA3656E20D9F445002EBF55 /* InStoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InStoryboardViewController.swift; sourceTree = "<group>"; };
+		CDA3656E20D9F445002EBF55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDA3657120D9F445002EBF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDA3657320D9F446002EBF55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA3657620D9F446002EBF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDA3657820D9F446002EBF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDCE2FED20DA3E9600B52C58 /* InCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCodeViewController.swift; sourceTree = "<group>"; };
+		CDCE2FED20DA3E9600B52C58 /* ProgrammaticallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticallyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				CDA3655C20D9EE6A002EBF55 /* StickySlideView.h */,
 				CDA3656420D9EE82002EBF55 /* StickySlideView.swift */,
+				603DB38E20DE2C7300076842 /* StickySlideViewDelegate.swift */,
 				CDA3655D20D9EE6A002EBF55 /* Info.plist */,
 			);
 			path = StickySlideView;
@@ -109,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				CDA3656C20D9F445002EBF55 /* AppDelegate.swift */,
-				CDA3656E20D9F445002EBF55 /* InStoryboardViewController.swift */,
-				CDCE2FED20DA3E9600B52C58 /* InCodeViewController.swift */,
+				CDA3656E20D9F445002EBF55 /* ViewController.swift */,
+				CDCE2FED20DA3E9600B52C58 /* ProgrammaticallyViewController.swift */,
 				CDA3657020D9F445002EBF55 /* Main.storyboard */,
 				CDA3657320D9F446002EBF55 /* Assets.xcassets */,
 				CDA3657520D9F446002EBF55 /* LaunchScreen.storyboard */,
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603DB38F20DE2C7300076842 /* StickySlideViewDelegate.swift in Sources */,
 				CDA3656520D9EE82002EBF55 /* StickySlideView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,8 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA3656F20D9F445002EBF55 /* InStoryboardViewController.swift in Sources */,
-				CDCE2FEE20DA3E9600B52C58 /* InCodeViewController.swift in Sources */,
+				CDA3656F20D9F445002EBF55 /* ViewController.swift in Sources */,
+				CDCE2FEE20DA3E9600B52C58 /* ProgrammaticallyViewController.swift in Sources */,
 				CDA3656D20D9F445002EBF55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

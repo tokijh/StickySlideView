@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tjt-pu-4fF">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,86 +10,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--In Storyboard View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InStoryboardViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ssss" id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfG-wE-Xyn" customClass="StickySlideView" customModule="StickySlideView">
-                                <rect key="frame" x="0.0" y="736" width="375" height="42"/>
+                                <rect key="frame" x="0.0" y="635" width="375" height="32"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icArrow" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-Nd-zP0">
-                                        <rect key="frame" x="166" y="0.0" width="42" height="42"/>
-                                    </imageView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u77-Y1-ehy">
-                                        <rect key="frame" x="0.0" y="42" width="375" height="0.0"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCr-1b-XaS">
-                                                <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="527.66666666666663"/>
-                                                <string key="text">Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label
-Label</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                        <rect key="frame" x="171" y="0.0" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstItem="sCr-1b-XaS" firstAttribute="top" secondItem="u77-Y1-ehy" secondAttribute="top" id="Mn5-tn-68o"/>
-                                            <constraint firstItem="sCr-1b-XaS" firstAttribute="leading" secondItem="u77-Y1-ehy" secondAttribute="leading" id="cap-hv-gCw"/>
-                                            <constraint firstAttribute="trailing" secondItem="sCr-1b-XaS" secondAttribute="trailing" id="gu8-qz-RC4"/>
-                                            <constraint firstAttribute="bottom" secondItem="sCr-1b-XaS" secondAttribute="bottom" id="sQT-K6-GFh"/>
+                                            <constraint firstAttribute="width" constant="32" id="kj8-iG-Crv"/>
+                                            <constraint firstAttribute="height" constant="32" id="laR-az-D64"/>
                                         </constraints>
-                                    </scrollView>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mUV-Eu-ThL">
+                                        <rect key="frame" x="0.0" y="32" width="375" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7Zk-Nd-zP0" firstAttribute="top" secondItem="lfG-wE-Xyn" secondAttribute="top" id="6Ug-IH-Rmq"/>
-                                    <constraint firstAttribute="trailing" secondItem="u77-Y1-ehy" secondAttribute="trailing" id="A3M-JT-9UJ"/>
+                                    <constraint firstItem="mUV-Eu-ThL" firstAttribute="top" secondItem="7Zk-Nd-zP0" secondAttribute="bottom" id="Eig-t0-FCT"/>
                                     <constraint firstItem="7Zk-Nd-zP0" firstAttribute="centerX" secondItem="lfG-wE-Xyn" secondAttribute="centerX" id="JeV-kX-ESr"/>
-                                    <constraint firstItem="u77-Y1-ehy" firstAttribute="leading" secondItem="lfG-wE-Xyn" secondAttribute="leading" id="Q8o-Ie-wvV"/>
-                                    <constraint firstAttribute="bottom" secondItem="u77-Y1-ehy" secondAttribute="bottom" id="eWn-YX-sBC"/>
-                                    <constraint firstItem="u77-Y1-ehy" firstAttribute="top" secondItem="7Zk-Nd-zP0" secondAttribute="bottom" id="r73-b5-qE4"/>
+                                    <constraint firstAttribute="bottom" secondItem="mUV-Eu-ThL" secondAttribute="bottom" id="VAS-Mn-Hoq"/>
+                                    <constraint firstItem="mUV-Eu-ThL" firstAttribute="leading" secondItem="lfG-wE-Xyn" secondAttribute="leading" id="a9h-hL-zhi"/>
+                                    <constraint firstAttribute="trailing" secondItem="mUV-Eu-ThL" secondAttribute="trailing" id="qjf-It-xn8"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isOpen" value="NO"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="handlerHeight">
-                                        <real key="value" value="42"/>
+                                        <real key="value" value="32"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="containerView" destination="u77-Y1-ehy" id="8CC-NZ-sZT"/>
+                                    <outlet property="containerView" destination="mUV-Eu-ThL" id="fcd-8M-Lo0"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-qA-dax">
-                                <rect key="frame" x="133" y="288" width="108" height="30"/>
-                                <state key="normal" title="In Code Sample"/>
+                                <rect key="frame" x="100" y="264" width="175" height="30"/>
+                                <state key="normal" title="Programmatically Sample"/>
                                 <connections>
                                     <segue destination="E4R-Tx-xpS" kind="show" id="XC9-z8-tMm"/>
                                 </connections>
@@ -111,12 +79,12 @@ Label</string>
             </objects>
             <point key="canvasLocation" x="727" y="134"/>
         </scene>
-        <!--In Code View Controller-->
+        <!--Programmatically View Controller-->
         <scene sceneID="VZM-ZV-R8p">
             <objects>
-                <viewController id="E4R-Tx-xpS" customClass="InCodeViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E4R-Tx-xpS" customClass="ProgrammaticallyViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goA-Wb-g8b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uXj-pd-exf"/>
@@ -124,7 +92,7 @@ Label</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3JS-Hu-fUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="134"/>
+            <point key="canvasLocation" x="1534" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V48-nx-1Rc">
@@ -132,7 +100,7 @@ Label</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tjt-pu-4fF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ep6-dE-h72">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -142,10 +110,10 @@ Label</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCv-hg-5xe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-89" y="134"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icArrow" width="42" height="42"/>
+        <image name="icArrow" width="32" height="32"/>
     </resources>
 </document>
