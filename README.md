@@ -9,14 +9,14 @@
 ## Introduction
 SlideView synchronized with ScrollView
 
-![sample](Docs/sample.gif)
+![sample](https://github.com/tokijh/StickySlideView/blob/master/Docs/sample.gif)
 
 ## Noti
 ### v1.1
 Now, you can use estimated height function</br>
 It will calculate height dynamically through `containerView.contentSize`.
 
-![estimatedSample](Docs/estimatedSample.gif)
+![estimatedSample](https://github.com/tokijh/StickySlideView/blob/master/Docs/estimatedSample.gif)
 
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -32,7 +32,7 @@ pod 'StickySlideView'
 ## Usage
 ### In storyboard
 You can connect scrollview by containerView like follow image
-![sample](Docs/storyboardsample.png)
+![sample](https://github.com/tokijh/StickySlideView/blob/master/Docs/storyboardsample.png)
 
 ### In code
 ```
@@ -53,4 +53,4 @@ view.addSubview(self.stickyView)
 * [tokijh](https://github.com/tokijh)
 
 ## License
-StickySlideView is available under the MIT License See the [LICENSE](LICENSE) file for more info.
+StickySlideView is available under the MIT License See the [LICENSE](https://github.com/tokijh/StickySlideView/blob/master/LICENSE) file for more info.
