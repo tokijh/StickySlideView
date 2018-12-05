@@ -29,6 +29,11 @@ it, simply add the following line to your Podfile:
 pod 'StickySlideView'
 ```
 
+**v1.1.1 Support Carthage**
+```
+github 'ReactorKit/ReactorKit'
+```
+
 ## Usage
 ### In storyboard
 You can connect scrollview by containerView like follow image
