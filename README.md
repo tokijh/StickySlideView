@@ -31,7 +31,7 @@ pod 'StickySlideView'
 
 **v1.1.1 Support Carthage**
 ```
-github 'ReactorKit/ReactorKit'
+github 'tokijh/StickySlideView'
 ```
 
 ## Usage
